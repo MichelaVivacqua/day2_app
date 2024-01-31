@@ -2,11 +2,9 @@ import libri from "./data/scifi.json";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 
 function AllTheBooks() {
-  const bookCards = libri.map((libro) => (
+  return libri.map((libro) => (
     <Col key={libro.asin} md={2}>
       <Card style={{ marginBottom: "20px" }}>
         <Card.Img variant="top" src={libro.img} />
@@ -18,11 +16,5 @@ function AllTheBooks() {
       </Card>
     </Col>
   ));
-
-  return (
-    <Container>
-      <Row>{bookCards}</Row>
-    </Container>
-  );
 }
 export default AllTheBooks;

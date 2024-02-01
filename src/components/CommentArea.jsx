@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CommentsList from "./CommentList";
+import AddComment from "./AddComment";
 
 class CommentArea extends Component {
   state = {
@@ -8,8 +9,7 @@ class CommentArea extends Component {
 
   fetchComments = () => {
     fetch(
-      "https://striveschool-api.herokuapp.com/api/comments/" +
-        this.props.libro.asin,
+      "https://striveschool-api.herokuapp.com/api/comments/" + this.props.asin,
       {
         headers: {
           Authorization:
@@ -18,10 +18,11 @@ class CommentArea extends Component {
       }
     )
       .then((response) => {
-        if (!response.ok) {
-          throw new Error("Errore nel fetch delle recensioni");
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("errore");
         }
-        return response.json();
       })
       .then((data) => {
         this.setState({ comments: data });
@@ -39,9 +40,9 @@ class CommentArea extends Component {
   render() {
     return (
       <div>
-        <h3>Recensioni</h3>
+        <h6>Recensioni</h6>
         <CommentsList comments={this.state.comments} />
-        {/* <AddComment /> */}
+        <AddComment asin={this.props.asin} />
       </div>
     );
   }

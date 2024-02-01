@@ -23,10 +23,11 @@ class SingleBook extends Component {
           <Card.Img variant="top" src={this.props.libro.img} />
           <Card.Body>
             <Card.Title>{this.props.libro.title}</Card.Title>
+            {this.state.selected && (
+              <CommentArea asin={this.props.libro.asin} />
+            )}
           </Card.Body>
         </Card>
-        {/* Mostra CommentArea solo quando selected è true */}
-        {selected && <CommentArea libro={this.props.libro} />}
       </Col>
     );
   }

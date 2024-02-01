@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
+import CommentArea from "./CommentArea";
 
 class SingleBook extends Component {
   state = {
@@ -24,6 +25,8 @@ class SingleBook extends Component {
             <Card.Title>{this.props.libro.title}</Card.Title>
           </Card.Body>
         </Card>
+        {/* Mostra CommentArea solo quando selected è true */}
+        {selected && <CommentArea libro={this.props.libro} />}
       </Col>
     );
   }

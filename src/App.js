@@ -6,11 +6,11 @@ import Welcome from "./components/Welcome";
 import AllTheBooks from "./components/AllTheBooks";
 import SingleBook from "./components/SingleBook";
 import BookList from "./components/BookList";
-import RomanceBook from "../src/components/data/romance.json";
+import FantasyBook from "../src/components/data/fantasy.json";
 
 function App() {
   // Seleziona un libro specifico dall'array
-  const libroDaVisualizzare = RomanceBook[0]; // Puoi cambiare l'indice per visualizzare un libro diverso
+  const libroDaVisualizzare = FantasyBook[0]; // Puoi cambiare l'indice per visualizzare un libro diverso
 
   return (
     <>
@@ -24,9 +24,9 @@ function App() {
           <SingleBook libro={libroDaVisualizzare} />
         </div>
         <div className="container">
-          <h5>Romance Books</h5>
+          <h5>Fantasy Books</h5>
           {/* Monta BookList e passa l'array di libri come prop */}
-          <BookList books={RomanceBook} />
+          <BookList books={FantasyBook} />
         </div>
         <div className="container">
           <div className="row">
